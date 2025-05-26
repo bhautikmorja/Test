@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 async function authMiddleware(req,res,next){
     try {
         const accessToken = req.header("Authorization") ? req.header("Authorization").split(" ")[1] : null
+        console.log("🚀 ~ authMiddleware ~ accessToken:", accessToken)
         if(!accessToken){
             return res.status(401).json({message:"Unauthorized"})
         }
